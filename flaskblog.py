@@ -36,7 +36,7 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         flash(f'Account created for { form.username.data }!', 'success')
-    return redirect(url_for('home'))
+        return redirect(url_for('home'))
     return render_template('register.html', title='Register', form=form)
 
 
@@ -44,7 +44,6 @@ def register():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-
         if form.email.data == 'admin@blog.com' and form.password.data == 'password':
             flash('you have been logged in!', 'success')
             return redirect(url_for('home'))
